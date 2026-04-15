@@ -1,16 +1,82 @@
-# React + Vite
+Movie Discovery App
+PROG2700 — Final Project**
+For my final project I chose to do a movie search/ discovery app, me and my boyfriend have been really into watching movies and finding new movies to watch so I thought this was a great idea
+that I could aslo personally use! I will admit I severly underestimated how much work this project would take lol it was very frustrating to say the least but I am glad I stuck with it and worked 
+out all the issues!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Overview
 
-Currently, two official plugins are available:
+The Movie Discovery App lets users explore a curated catalogue of movies, view detailed information about each title, and manage a personal favourites list that persists across pages. The app demonstrates modern front end development practices including component-based architecture, global state management with React Context, client-side routing, and third-party API integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
 
-## React Compiler
+- Browse Movies — View a dynamic grid of movie cards on the home page, each displaying poster art, title, and release date.
+- Search & Sort — Filter movies by keyword and sort results alphabetically or by release date using Lodash utilities.
+- Movie Details — Click any card to view a dedicated details page with synopsis, rating, genres, and formatted release date.
+- Favourites System — Add or remove movies from a global favourites list managed through React Context; access saved favourites on a dedicated page.
+- Responsive Design — SCSS-powered layouts that adapt cleanly to desktop, tablet, and mobile viewports.
+- Client-Side Routing — Seamless navigation between Home, Favourites, and Details pages via React Router.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Technology Stack
 
-## Expanding the ESLint configuration
+| Technology | Purpose |
+| React 18| Component-based UI library |
+| Vite| Fast development server and build tool |
+| React Router | Client-side page routing |
+| Axios| HTTP client for API requests |
+| Lodash| Utility functions for sorting and data manipulation |
+| Day.js | Lightweight date formatting |
+| SCSS| Modular, nested CSS styling |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Architecture Diagram
+
+┌─────────────────────────────────────────────────────────┐
+│                        App.jsx                          │
+│                   (React Router Setup)                  │
+└────────────┬──────────────┬──────────────┬──────────────┘
+│              │              │
+▼              ▼              ▼
+┌───────────┐  ┌──────────────┐  ┌──────────────────┐
+│ HomePage  │  │FavouritesPage│  │ MovieDetailsPage │
+└─────┬─────┘  └──────┬───────┘  └────────┬─────────┘
+│               │                    │
+▼               ▼                    │
+┌───────────┐   ┌───────────┐              │
+│ MovieCard │   │ MovieCard │              │
+└─────┬─────┘   └─────┬─────┘              │
+│               │                    │
+▼               ▼                    ▼
+┌─────────────────────────────────────────────┐
+│          FavouritesContext (Global State)    │
+│        Add / Remove / Check Favourites      │
+└──────────────────────┬──────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────┐
+│              api.js (Axios)                 │
+│       Fetch movies from external API        │
+└─────────────────────────────────────────────┘
+
+SetUp Steps 
+vite-project/
+├── public/                  # Static assets
+├── src/
+│   ├── components/
+│   │   └── MovieCard.jsx    # Reusable movie card component
+│   ├── context/
+│   │   └── FavouritesContext.jsx  # Global favourites state provider
+│   ├── pages/
+│   │   ├── HomePage.jsx          # Main browsing page
+│   │   ├── FavouritesPage.jsx    # Saved favourites page
+│   │   └── MovieDetailsPage.jsx  # Individual movie detail view
+│   ├── styles/
+│   │   └── *.scss           # SCSS stylesheets 
+│   ├── api.js               # Axios API configuration and calls
+│   ├── App.jsx              # Root component with route definitions
+│   └── main.jsx             # Application entry point
+├── .env                     # API key 
+├── index.html               # HTML shell
+├── package.json             # Dependencies and scripts
+└── vite.config.js           # Vite configuration
+
+
