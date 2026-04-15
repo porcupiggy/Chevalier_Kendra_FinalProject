@@ -1,5 +1,6 @@
 Movie Discovery App
-PROG2700 — Final Project**
+PROG2700 — Final Project
+
 For my final project I chose to do a movie search/ discovery app, me and my boyfriend have been really into watching movies and finding new movies to watch so I thought this was a great idea
 that I could aslo personally use! I will admit I severly underestimated how much work this project would take lol it was very frustrating to say the least but I am glad I stuck with it and worked 
 out all the issues!
@@ -58,6 +59,7 @@ Architecture Diagram
 └─────────────────────────────────────────────┘
 
 SetUp Steps 
+
 vite-project/
 ├── public/                  # Static assets
 ├── src/
